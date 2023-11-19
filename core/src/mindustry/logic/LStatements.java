@@ -1403,11 +1403,11 @@ public class LStatements{
               	case ambientLight -> {
 					table.add(" = ");
 
-					tfield = field(table, value, s -> value = s);
+					tfield = field(table, value, s -> value = s).get();
 					table.button(b -> {
 						b.image(Icon.pencilSmall);
 						b.clicked(() -> {
-							ui.picker.show(Tmp.c1.set(color).a(1f), false, col -> {
+							ui.picker.show(Color.white, false, col -> {
 								value = "%" + col.toString();
 								tfield.setText(value);
 							});
