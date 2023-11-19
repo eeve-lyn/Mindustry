@@ -1410,7 +1410,7 @@ public class LStatements{
 							ui.picker.show(Tmp.c1.set(color).a(1f), false, col -> {
 								value = "%" + col.toString();
 								tfield.setText(value);
-							}));
+							});
 						});
 					}, Styles.logict, () -> {}).size(40f).padLeft(-1).color(table.color);
 				}
