@@ -1357,6 +1357,8 @@ public class LStatements{
         public LogicRule rule = LogicRule.waveSpacing;
         public String value = "10", p1 = "0", p2 = "0", p3 = "100", p4 = "100";
 
+        private transient TextField tfield;
+
         @Override
         public void build(Table table){
             rebuild(table);
@@ -1398,6 +1400,20 @@ public class LStatements{
 
                     field(table, value, s -> value = s);
                 }
+              	case ambientLight -> {
+					table.add(" = ");
+
+					tfield = field(table, value, s -> value = s);
+					table.button(b -> {
+						b.image(Icon.pencilSmall);
+						b.clicked(() -> {
+							ui.picker.show(Tmp.c1.set(color).a(1f), false, col -> {
+								value = "%" + col.toString();
+								tfield.setText(value);
+							}));
+						});
+					}, Styles.logict, () -> {}).size(40f).padLeft(-1).color(table.color);
+				}
                 default -> {
                     table.add(" = ");
 
